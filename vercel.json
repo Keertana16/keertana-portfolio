@@ -1,0 +1,10 @@
+{
+  "buildCommand": "",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "cleanUrls": true
+}

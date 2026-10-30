@@ -225,6 +225,7 @@
     background: var(--surface);
     position: relative;
     animation: floatCard 6s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px rgba(0,229,255,0.1);
   }
   @keyframes floatCard { 0%{transform:translateY(0) rotate(-1deg)} 100%{transform:translateY(-16px) rotate(1deg)} }
   .photo-card img {
@@ -628,7 +629,23 @@
       padding-bottom: 3rem;
       gap: 2rem;
     }
-    .hero-visual { display: none; }
+    .hero-visual { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      order: -1;
+      margin-bottom: 1rem;
+    }
+    .photo-frame {
+      width: 200px; 
+      height: 200px;
+    }
+    .photo-card {
+      border-radius: 50%;
+    }
+    .orbit-ring { display: none; }
+    .badge-float { display: none; }
+    .photo-glow { display: none; }
     .hero-name { font-size: clamp(2rem, 5vw, 4rem); }
     .hero-tagline { max-width: 100%; font-size: 0.95rem; }
     .hero-btns { justify-content: center; gap: 0.8rem; }
@@ -663,6 +680,19 @@
     section { padding: 4rem 3vw !important; }
     #hero { padding: 5.5rem 3vw 3rem !important; }
     nav { padding: 0.8rem 3vw; }
+
+    /* Hero mobile image */
+    .hero-visual { 
+      display: flex; 
+      margin: 0 auto 1.5rem;
+    }
+    .photo-frame {
+      width: 180px; 
+      height: 180px;
+    }
+    .photo-card {
+      border-radius: 50%;
+    }
 
     /* Typography */
     .section-title { font-size: clamp(1.5rem, 3.5vw, 2rem); }
@@ -760,6 +790,23 @@
     section { padding: 3rem 2vw !important; }
     #hero { padding: 4.5rem 2vw 2rem !important; }
     nav { padding: 0.7rem 2vw; }
+
+    /* Hero mobile image */
+    .hero-visual { 
+      display: flex;
+      margin: 0 auto 1.2rem;
+      width: 100%;
+      justify-content: center;
+    }
+    .photo-frame {
+      width: 160px; 
+      height: 160px;
+    }
+    .photo-card {
+      border-radius: 50%;
+      border-width: 2px;
+      animation: none;
+    }
 
     /* Typography - More aggressive sizing */
     .section-label { font-size: 0.65rem; margin-bottom: 0.5rem; }
@@ -927,6 +974,19 @@
 
     .section-title { font-size: clamp(1.1rem, 2.8vw, 1.5rem); }
     .hero-name { font-size: clamp(1.3rem, 3.5vw, 2rem); line-height: 0.9; }
+
+    /* Hero mobile image - smaller for very small phones */
+    .hero-visual { 
+      display: flex;
+      margin: 0 auto 1rem;
+    }
+    .photo-frame {
+      width: 140px; 
+      height: 140px;
+    }
+    .photo-card {
+      border-radius: 50%;
+    }
 
     .hero-stats { gap: 0.6rem; }
     .stat-item { flex: 0 1 calc(50% - 0.3rem); }
@@ -1121,6 +1181,18 @@
   <div class="section-label reveal">Experience</div>
   <h2 class="section-title reveal">Where I've Worked</h2>
   <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-date">2026 · Internship</div>
+      <div class="tl-card">
+        <div class="tl-role">AI/ML Intern</div>
+        <div class="tl-company"><i class="fas fa-building"></i> &nbsp;Bharat Space Education & Research Centre (BSERC)</div>
+        <div class="tl-desc">Internship (19 June – 30 July 2026). Built AI/ML projects focused on data preprocessing, model evaluation, and deployment; delivered a threat-prediction model used for scenario analysis and risk assessment.</div>
+        <div class="tl-tags">
+          <span class="tag">AI</span><span class="tag">Machine Learning</span>
+          <span class="tag">Data Science</span><span class="tag">Model Deployment</span>
+        </div>
+      </div>
+    </div>
     <div class="tl-item reveal">
       <div class="tl-date">2024 · Internship</div>
       <div class="tl-card">
@@ -1519,6 +1591,54 @@
       </div>
     </div>
 
+    <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
+      <div class="cert-img-wrap">
+        <img src="assets/img/cert-GEN-AI.jpg.png" alt="Generative AI Workshop">
+        <button class="cert-view-btn"><i class="fas fa-expand"></i> View</button>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Generative AI Workshop</div>
+        <div class="cert-issuer"><i class="fas fa-award"></i> GenAI Program</div>
+        <div class="cert-date"><i class="far fa-calendar-alt"></i> &nbsp;2026</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
+      <div class="cert-img-wrap">
+        <img src="assets/img/Cert-HackAce.jpg.png" alt="HackAce Participation">
+        <button class="cert-view-btn"><i class="fas fa-expand"></i> View</button>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">HackAce — Participation / Award</div>
+        <div class="cert-issuer"><i class="fas fa-award"></i> HackAce</div>
+        <div class="cert-date"><i class="far fa-calendar-alt"></i> &nbsp;2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
+      <div class="cert-img-wrap">
+        <img src="assets/img/cert-BSERC-Internship.jpg.jpg" alt="BSERC Internship">
+        <button class="cert-view-btn"><i class="fas fa-expand"></i> View</button>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">BSERC Internship</div>
+        <div class="cert-issuer"><i class="fas fa-award"></i> BSERC</div>
+        <div class="cert-date"><i class="far fa-calendar-alt"></i> &nbsp;2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
+      <div class="cert-img-wrap">
+        <img src="assets/img/cert-Green-Skills-And-Appiled-AI-for-Climate-Action.jpg" alt="Green Skills & Applied AI">
+        <button class="cert-view-btn"><i class="fas fa-expand"></i> View</button>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Green Skills & Applied AI for Climate Action</div>
+        <div class="cert-issuer"><i class="fas fa-award"></i> Online Program</div>
+        <div class="cert-date"><i class="far fa-calendar-alt"></i> &nbsp;2026</div>
+      </div>
+    </div>
+
   </div>
   <p style="font-size:0.78rem;color:var(--text-dim);margin-top:1.5rem;text-align:center;" class="reveal">
     💡 Click any card to view the certificate in full size. Replace placeholder images with your actual certificate images.
@@ -1625,29 +1745,31 @@
         </a>
       </div>
     </div>
-    <div class="contact-form reveal">
+    <form class="contact-form reveal" action="https://formsubmit.co/keertana.ms.16@gmail.com" method="POST" id="contactForm">
       <div class="form-row">
         <div class="input-group">
           <label>Your Name</label>
-          <input type="text" placeholder="John Doe">
+          <input type="text" name="name" placeholder="John Doe" required>
         </div>
         <div class="input-group">
           <label>Email</label>
-          <input type="email" placeholder="you@email.com">
+          <input type="email" name="email" placeholder="you@email.com" required>
         </div>
       </div>
       <div class="input-group">
         <label>Subject</label>
-        <input type="text" placeholder="Internship Opportunity / Collaboration">
+        <input type="text" name="subject" placeholder="Internship Opportunity / Collaboration" required>
       </div>
       <div class="input-group">
         <label>Message</label>
-        <textarea placeholder="Hi Keertana, I'd love to discuss..."></textarea>
+        <textarea name="message" placeholder="Hi Keertana, I'd love to discuss..." required></textarea>
       </div>
-      <button class="form-submit" onclick="handleSubmit(event)">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://keertana16-portfolio.vercel.app">
+      <button type="submit" class="form-submit">
         <i class="fas fa-paper-plane"></i> Send Message
       </button>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -1878,15 +2000,19 @@ function closeLightbox() {
 }
 
 // ── Form ──
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target;
-  btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-  btn.style.background = 'linear-gradient(135deg,#00c897,#00e5ff)';
-  setTimeout(() => { 
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; 
-    btn.style.background = ''; 
-  }, 3000);
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    const btn = this.querySelector('.form-submit');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      btn.style.background = 'linear-gradient(135deg,#00c897,#00e5ff)';
+    }, 500);
+  });
 }
 
 // ── Stat counter ──
