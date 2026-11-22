@@ -397,6 +397,79 @@
     border: 1px solid rgba(191,90,242,0.15); border-radius: 4px;
   }
 
+  /* ── ACHIEVEMENTS & PATENTS ── */
+  #achievements { padding: 7rem 5vw; background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+  .achievements-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem; margin-top: 3rem;
+  }
+  .achieve-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 22px; padding: 2.2rem;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .achieve-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  }
+  .achieve-card.featured-patent {
+    border-color: rgba(245,197,24,0.3);
+    background: linear-gradient(145deg, rgba(245,197,24,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  }
+  .achieve-card.featured-patent:hover {
+    border-color: rgba(245,197,24,0.55);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 35px rgba(245,197,24,0.18);
+  }
+  .achieve-card.featured-google {
+    border-color: rgba(0,229,255,0.3);
+    background: linear-gradient(145deg, rgba(0,229,255,0.05) 0%, rgba(191,90,242,0.04) 100%);
+  }
+  .achieve-card.featured-google:hover {
+    border-color: rgba(0,229,255,0.55);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 35px rgba(0,229,255,0.18);
+  }
+  .achieve-top {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .achieve-icon-wrap {
+    width: 48px; height: 48px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .icon-patent { background: rgba(245,197,24,0.12); color: var(--gold); border: 1px solid rgba(245,197,24,0.25); }
+  .icon-google { background: rgba(0,229,255,0.12); color: var(--accent); border: 1px solid rgba(0,229,255,0.25); }
+  .achieve-pill {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 0.35rem 0.85rem; border-radius: 100px; display: inline-flex; align-items: center; gap: 0.4rem;
+  }
+  .pill-patent { background: rgba(245,197,24,0.1); color: var(--gold); border: 1px solid rgba(245,197,24,0.3); }
+  .pill-google { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.3); }
+  .achieve-title {
+    font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; line-height: 1.35;
+    color: var(--text);
+  }
+  .achieve-sub {
+    font-size: 0.84rem; color: var(--accent2); display: flex; align-items: center; gap: 0.4rem; font-weight: 500;
+  }
+  .achieve-desc {
+    font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; flex: 1;
+  }
+  .achieve-meta-box {
+    background: rgba(0,0,0,0.28); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.1rem 1.3rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.9rem;
+  }
+  .achieve-meta-row { display: flex; flex-direction: column; gap: 0.2rem; }
+  .achieve-meta-label { font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .achieve-meta-val { font-size: 0.86rem; font-weight: 600; color: var(--text); }
+  .achieve-actions {
+    display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem;
+  }
+  .achieve-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
   /* ── CERTIFICATIONS ── */
   #certifications { padding: 7rem 5vw; background: var(--bg2); }
   .cert-grid {
@@ -668,6 +741,9 @@
     /* Projects */
     .projects-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
 
+    /* Achievements */
+    .achievements-grid { grid-template-columns: 1fr; gap: 1.3rem; }
+
     /* Certifications */
     .cert-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
 
@@ -740,6 +816,12 @@
     .project-name { font-size: 1rem; }
     .project-desc { font-size: 0.8rem; }
     .stack-tag { font-size: 0.65rem; }
+
+    /* Achievements */
+    .achievements-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .achieve-card { padding: 1.5rem; border-radius: 18px; }
+    .achieve-title { font-size: 1.1rem; }
+    .achieve-meta-box { grid-template-columns: 1fr; gap: 0.65rem; padding: 0.9rem; }
 
     /* Certifications */
     .cert-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -881,6 +963,12 @@
       gap: 0.3rem;
     }
 
+    /* Achievements */
+    .achieve-card { padding: 1.2rem; }
+    .achieve-title { font-size: 1rem; }
+    .achieve-desc { font-size: 0.82rem; }
+    .achieve-meta-box { padding: 0.8rem; }
+
     /* Certifications */
     .cert-grid { grid-template-columns: 1fr; gap: 0.9rem; }
     .cert-img-wrap { height: 120px; }
@@ -999,6 +1087,11 @@
     .project-thumb { height: 120px; }
     .project-name { font-size: 0.9rem; }
 
+    .achievements-grid { gap: 0.8rem; }
+    .achieve-card { padding: 1rem; }
+    .achieve-actions { flex-direction: column; }
+    .achieve-actions .btn { width: 100%; justify-content: center; text-align: center; }
+
     .cert-grid { gap: 0.8rem; }
     .cert-img-wrap { height: 100px; }
 
@@ -1056,6 +1149,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#courses">Courses</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -1070,6 +1164,7 @@
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#experience" onclick="closeMobile()">Experience</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#achievements" onclick="closeMobile()">Achievements</a>
   <a href="#certifications" onclick="closeMobile()">Certifications</a>
   <a href="#courses" onclick="closeMobile()">Courses</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1087,24 +1182,28 @@
       <span class="line"><span>Keertana</span></span>
     </h1>
     <p class="hero-tagline reveal">
-      B.Tech IT Student at KPR Institute · CGPA <strong style="color:var(--accent)">8.9</strong><br>
+      B.Tech IT Student at KPR Institute · CGPA <strong style="color:var(--accent)">8.73</strong><br>
       <span id="typewriter"></span>
     </p>
     <div class="hero-stats reveal">
       <div class="stat-item">
-        <span class="stat-num">10</span>
+        <span class="stat-num">11</span>
         <span class="stat-label">Projects</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num">8.9</span>
+        <span class="stat-num">8.73</span>
         <span class="stat-label">CGPA</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num">12</span>
+        <span class="stat-num">1</span>
+        <span class="stat-label">Patent</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">17</span>
         <span class="stat-label">Certifications</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num">2nd</span>
+        <span class="stat-num">3rd</span>
         <span class="stat-label">Year</span>
       </div>
     </div>
@@ -1135,41 +1234,59 @@
   <h2 class="section-title reveal">Crafting Code &<br>Creative Solutions</h2>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm <strong>Keertana</strong>, a passionate <strong>B.Tech Information Technology</strong> student at KPR Institute of Engineering and Technology, Coimbatore, with a stellar CGPA of <strong>8.9</strong>.</p>
+      <p>I'm <strong>Keertana</strong>, a passionate <strong>B.Tech Information Technology</strong> student at KPR Institute of Engineering and Technology, Coimbatore, with a stellar CGPA of <strong>8.73</strong>.</p>
       <p>I thrive at the intersection of <strong>AI/ML</strong>, full-stack development, and elegant UI design. I've completed a Python Developer internship at <strong>Infosys Springboard</strong> and am actively exploring opportunities in frontend and ML/AI domains.</p>
       <p>When I'm not building projects, I enjoy exploring design aesthetics, working on creative side projects, and staying ahead of emerging tech trends.</p>
       <div class="info-chips">
         <span class="chip"><i class="fas fa-graduation-cap"></i> KPR Institute, Coimbatore</span>
         <span class="chip"><i class="fas fa-map-marker-alt"></i> Sivakasi / Coimbatore, TN</span>
         <span class="chip"><i class="fas fa-code"></i> Full-Stack + ML</span>
-        <span class="chip"><i class="fas fa-star"></i> CGPA 8.9</span>
+        <span class="chip"><i class="fas fa-star"></i> CGPA 8.73</span>
+        <span class="chip"><i class="fas fa-certificate" style="color:var(--gold)"></i> Published Patent (IPO)</span>
+        <span class="chip"><i class="fab fa-google" style="color:var(--accent)"></i> Google Student Ambassador</span>
         <span class="chip"><i class="fas fa-laptop-code"></i> Open to Internships</span>
       </div>
     </div>
     <div class="skills-cloud reveal">
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">Python / ML</span><span class="skill-pct">90%</span></div>
+        <div class="skill-meta"><span class="skill-name">Python &amp; Machine Learning</span><span class="skill-pct">90%</span></div>
         <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div>
       </div>
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">React / MERN Stack</span><span class="skill-pct">82%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div>
+        <div class="skill-meta"><span class="skill-name">Data Structures &amp; Algorithms (DSA)</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
       </div>
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">HTML / CSS / JS</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+        <div class="skill-meta"><span class="skill-name">React.js &amp; Full-Stack Web (MERN)</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
       </div>
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">Django / Flask / FastAPI</span><span class="skill-pct">80%</span></div>
+        <div class="skill-meta"><span class="skill-name">Java &amp; Object-Oriented Programming (OOP)</span><span class="skill-pct">80%</span></div>
         <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
       </div>
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">MongoDB / MySQL</span><span class="skill-pct">78%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div>
+        <div class="skill-meta"><span class="skill-name">Flask, Django &amp; REST APIs</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div>
       </div>
       <div class="skill-row">
-        <div class="skill-meta"><span class="skill-name">Scikit-learn / NLTK</span><span class="skill-pct">75%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div>
+        <div class="skill-meta"><span class="skill-name">Deep Learning &amp; Computer Vision (YOLOv8)</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-meta"><span class="skill-name">Cloud &amp; Databases (AWS, MongoDB, MySQL)</span><span class="skill-pct">78%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div>
+      </div>
+
+      <div class="skills-tags-wrap" style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.45rem;">
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">Python</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">Java</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">React.js</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">Node.js</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">DSA &amp; OOP</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">Computer Vision (YOLOv8)</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">AWS Cloud</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">REST APIs</span>
+        <span class="tag" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);">Git &amp; GitHub</span>
       </div>
     </div>
   </div>
@@ -1181,6 +1298,19 @@
   <div class="section-label reveal">Experience</div>
   <h2 class="section-title reveal">Where I've Worked</h2>
   <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-date">2026 · Leadership</div>
+      <div class="tl-card">
+        <div class="tl-role">Google Student Ambassador</div>
+        <div class="tl-company"><i class="fab fa-google"></i> &nbsp;Google · #TeamGemini (Communique)</div>
+        <div class="tl-desc">Selected as Google Student Ambassador for the 2026 cohort. Awarded Certificate of Recognition for successfully completing Semester 1 with outstanding performance and exceptional contribution in driving campus tech initiatives, hosting events, and evangelizing Google developer technologies and Gemini AI.</div>
+        <div class="tl-tags">
+          <span class="tag">Google</span><span class="tag">#TeamGemini</span>
+          <span class="tag">Student Ambassador</span><span class="tag">AI Evangelism</span>
+          <span class="tag">Campus Leadership</span>
+        </div>
+      </div>
+    </div>
     <div class="tl-item reveal">
       <div class="tl-date">2026 · Internship</div>
       <div class="tl-card">
@@ -1210,9 +1340,9 @@
       <div class="tl-card">
         <div class="tl-role">B.Tech Information Technology</div>
         <div class="tl-company"><i class="fas fa-university"></i> &nbsp;KPR Institute of Engineering & Technology, Coimbatore</div>
-        <div class="tl-desc">Pursuing B.Tech IT with a CGPA of 8.9. Actively working on ML, full-stack, and AI-powered projects. Participated in hackathons and coding challenges including HackWithInfy, TCS CodeVita, and Amazon ML Challenge.</div>
+        <div class="tl-desc">Pursuing B.Tech IT with a CGPA of 8.73. Actively working on ML, full-stack, and AI-powered projects. Participated in hackathons and coding challenges including HackWithInfy, TCS CodeVita, and Amazon ML Challenge.</div>
         <div class="tl-tags">
-          <span class="tag">CGPA 8.9</span><span class="tag">HackWithInfy</span>
+          <span class="tag">CGPA 8.73</span><span class="tag">HackWithInfy</span>
           <span class="tag">TCS CodeVita</span><span class="tag">Amazon ML</span>
         </div>
       </div>
@@ -1349,6 +1479,7 @@
         <div class="project-stack">
           <span class="stack-tag">Python</span><span class="stack-tag">TensorFlow/Keras</span>
           <span class="stack-tag">MobileNetV2</span><span class="stack-tag">Transfer Learning</span><span class="stack-tag">OpenCV</span>
+          <a href="assets/pdf/Microscopy%20system%20-Patent.pdf" target="_blank" class="stack-tag" style="background:rgba(245,197,24,0.14);color:var(--gold);border-color:rgba(245,197,24,0.35);text-decoration:none;" title="View Published Indian Patent"><i class="fas fa-certificate"></i> Published Patent No. 202641064539 A</a>
         </div>
       </div>
     </div>
@@ -1437,6 +1568,138 @@
       </div>
     </div>
 
+    <div class="project-card reveal">
+      <div class="project-thumb">
+        <img src="assets/img/project-wireless-%20communcation-lift.jpeg" alt="LiftLink — Wireless Elevator System">
+        <div class="project-overlay">
+          <button class="overlay-btn overlay-demo" onclick="openVideo('liftlink','LiftLink — Wireless Elevator System','assets/img/project-wireless-%20communcation-lift.jpeg','ESP32-based wireless elevator landing-call registration system utilizing routerless ESP-NOW communication to eliminate physical multi-floor wiring, monitored in real time via a Web Serial API dashboard.')">
+            <i class="fas fa-image"></i> Hardware Demo
+          </button>
+          <a href="https://github.com/Keertana16" target="_blank" class="overlay-btn overlay-github"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-number">11</div>
+        <div class="project-name">LiftLink — Wireless Elevator Landing-Call System</div>
+        <div class="project-desc">ESP32-based wireless elevator landing-call registration system that replaces traditional multi-floor physical wiring using routerless ESP-NOW protocol. Features real-time floor request tracking, lift state monitoring, and fault reporting via a Web Serial API dashboard.</div>
+        <div class="project-stack">
+          <span class="stack-tag">ESP32</span><span class="stack-tag">ESP-NOW</span>
+          <span class="stack-tag">IoT &amp; Embedded</span><span class="stack-tag">Web Serial API</span>
+          <span class="stack-tag">JavaScript</span><span class="stack-tag">Hardware</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS & PATENTS -->
+<div class="divider"></div>
+<section id="achievements">
+  <div class="section-label reveal">Achievements & Honors</div>
+  <h2 class="section-title reveal">Key Milestones &<br>Patent Publication</h2>
+  <div class="achievements-grid">
+
+    <!-- Patent Card -->
+    <div class="achieve-card featured-patent reveal">
+      <div class="achieve-top">
+        <div class="achieve-icon-wrap icon-patent">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <span class="achieve-pill pill-patent"><i class="fas fa-landmark"></i> Published Indian Patent</span>
+      </div>
+      <div>
+        <div class="achieve-title">AI &amp; IoT-Based Marine Microscopy Monitoring System</div>
+        <div class="achieve-sub"><i class="fas fa-microchip"></i> Co-Inventor &amp; Co-Applicant · Intellectual Property India</div>
+      </div>
+      <p class="achieve-desc">
+        Co-inventor and co-applicant of a published Indian patent application focused on real-time marine organism detection and water quality monitoring. Integrates AI-powered microscopy with IoT sensors to monitor environmental parameters and generate automated Harmful Algal Bloom (HAB) alerts.
+      </p>
+      <div class="achieve-meta-box">
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Patent Application No.</span>
+          <span class="achieve-meta-val" style="color:var(--gold);font-family:monospace;letter-spacing:0.04em;">202641064539 A</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Published Date</span>
+          <span class="achieve-meta-val">June 05, 2026</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Official Journal</span>
+          <span class="achieve-meta-val">The Patent Office Journal No. 23/2026</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Jurisdiction</span>
+          <span class="achieve-meta-val">Patent Office, India</span>
+        </div>
+      </div>
+      <div class="achieve-actions">
+        <a href="assets/pdf/Microscopy%20system%20-Patent.pdf" target="_blank" class="btn btn-primary" style="padding:0.55rem 1.25rem;font-size:0.8rem;">
+          <i class="fas fa-file-pdf"></i> View Patent PDF
+        </a>
+        <a href="assets/pdf/Microscopy%20system%20-Patent.pdf" download="Microscopy_System_Patent_202641064539A.pdf" class="btn btn-outline" style="padding:0.55rem 1.25rem;font-size:0.8rem;">
+          <i class="fas fa-download"></i> Download PDF
+        </a>
+      </div>
+      <div class="achieve-tags">
+        <span class="tag">AI Microscopy</span>
+        <span class="tag">IoT Water Quality</span>
+        <span class="tag">HAB Alerts</span>
+        <span class="tag">Marine Organisms</span>
+        <span class="tag">Twilio API</span>
+      </div>
+    </div>
+
+    <!-- Google Student Ambassador Card -->
+    <div class="achieve-card featured-google reveal">
+      <div class="achieve-top">
+        <div class="achieve-icon-wrap icon-google">
+          <i class="fab fa-google"></i>
+        </div>
+        <span class="achieve-pill pill-google"><i class="fas fa-star"></i> Google #TeamGemini</span>
+      </div>
+      <div>
+        <div class="achieve-title">Google Student Ambassador Program 2026</div>
+        <div class="achieve-sub"><i class="fas fa-award"></i> Certificate of Recognition · Outstanding Performance</div>
+      </div>
+      <p class="achieve-desc">
+        Honored with a Certificate of Recognition for successfully completing Semester 1 and for outstanding performance and exceptional contribution as a Google Student Ambassador. Led campus tech evangelism, drove student community initiatives, and promoted developer technologies including Gemini AI.
+      </p>
+      <div class="achieve-meta-box">
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Program &amp; Cohort</span>
+          <span class="achieve-meta-val" style="color:var(--accent);">Google Student Ambassador 2026</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Recognition Date</span>
+          <span class="achieve-meta-val">November 04, 2026</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Affiliation</span>
+          <span class="achieve-meta-val">#TeamGemini · Communique</span>
+        </div>
+        <div class="achieve-meta-row">
+          <span class="achieve-meta-label">Institution</span>
+          <span class="achieve-meta-val">KPR Institute of Eng. &amp; Tech.</span>
+        </div>
+      </div>
+      <div class="achieve-actions">
+        <button class="btn btn-primary" onclick="openLightbox('assets/img/Cert-Google-Student-Ambassador-2026.jpg')" style="padding:0.55rem 1.25rem;font-size:0.8rem;">
+          <i class="fas fa-expand"></i> View Certificate
+        </button>
+        <a href="assets/img/Cert-Google-Student-Ambassador-2026.jpg" download="Cert-Google-Student-Ambassador-2026.jpg" class="btn btn-outline" style="padding:0.55rem 1.25rem;font-size:0.8rem;">
+          <i class="fas fa-download"></i> Download
+        </a>
+      </div>
+      <div class="achieve-tags">
+        <span class="tag">Google</span>
+        <span class="tag">#TeamGemini</span>
+        <span class="tag">Student Ambassador</span>
+        <span class="tag">Gemini AI</span>
+        <span class="tag">Leadership</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1446,6 +1709,18 @@
   <div class="section-label reveal">Certifications</div>
   <h2 class="section-title reveal">Credentials &<br>Achievements</h2>
   <div class="cert-grid">
+
+    <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
+      <div class="cert-img-wrap">
+        <img src="assets/img/Cert-Google-Student-Ambassador-2026.jpg" alt="Google Student Ambassador">
+        <button class="cert-view-btn"><i class="fas fa-expand"></i> View</button>
+      </div>
+      <div class="cert-body">
+        <div class="cert-name">Google Student Ambassador</div>
+        <div class="cert-issuer"><i class="fab fa-google"></i> Google · #TeamGemini</div>
+        <div class="cert-date"><i class="far fa-calendar-alt"></i> &nbsp;Nov 04, 2026 · Recognition</div>
+      </div>
+    </div>
 
     <div class="cert-card reveal" onclick="openLightbox(this.querySelector('img') ? this.querySelector('img').src : '')">
       <div class="cert-img-wrap">
@@ -1960,6 +2235,8 @@ function openVideo(id, title, url, desc) {
     vc.innerHTML = `<iframe src="${url}" allowfullscreen allow="autoplay"></iframe>`;
   } else if (url && (url.endsWith('.mp4') || url.endsWith('.webm'))) {
     vc.innerHTML = `<video src="${url}" controls autoplay></video>`;
+  } else if (url && (url.endsWith('.jpeg') || url.endsWith('.jpg') || url.endsWith('.png') || url.endsWith('.webp'))) {
+    vc.innerHTML = `<img src="${url}" style="width:100%;max-height:480px;object-fit:contain;border-radius:12px;display:block;margin:0 auto;box-shadow:0 8px 30px rgba(0,0,0,0.5);">`;
   } else {
     vc.innerHTML = `<div class="video-placeholder"><i class="fas fa-video-slash"></i><p>Replace the URL in the code with your YouTube embed link or video file.</p><p style="font-size:0.72rem;margin-top:0.3rem;opacity:0.5;">e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID</p></div>`;
   }
@@ -2018,13 +2295,15 @@ if (contactForm) {
 // ── Stat counter ──
 function animateCounter(el, target) {
   let cur = 0, step = target / 60;
+  const isFloat = target.toString().includes('.');
+  const decimals = isFloat ? target.toString().split('.')[1].length : 0;
   const t = setInterval(() => {
     cur += step;
     if (cur >= target) { 
       cur = target; 
       clearInterval(t); 
     }
-    el.textContent = Number.isInteger(target) ? Math.floor(cur) : cur.toFixed(1);
+    el.textContent = decimals > 0 ? cur.toFixed(decimals) : Math.floor(cur);
   }, 25);
 }
 
@@ -2032,7 +2311,9 @@ const cntObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       document.querySelectorAll('.stat-num').forEach(el => {
-        const t = parseFloat(el.textContent);
+        const text = el.textContent.trim();
+        if (text.includes('nd') || text.includes('rd') || text.includes('th') || text.includes('Year')) return;
+        const t = parseFloat(text);
         if (!isNaN(t)) animateCounter(el, t);
       });
       cntObs.unobserve(e.target);
